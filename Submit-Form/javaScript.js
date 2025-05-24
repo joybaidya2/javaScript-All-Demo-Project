@@ -1,6 +1,5 @@
 document.getElementById("studentForm").addEventListener('submit', function(e){
-  e.preventDefault();
-
+//e.preventDefault();
   const name = document.getElementById('name').value;
   const roll = document.getElementById('roll').value;
   const mark = document.getElementById('mark').value;
@@ -12,22 +11,26 @@ document.getElementById("studentForm").addEventListener('submit', function(e){
 
   sessionStorage.setItem('students', JSON.stringify(students));
 
-  document.getElementById("studentForm").reset();
-  alert("Student Infromation Saved!");
+  document.getElementById('studentForm').reset();
+  alert("Student Information Saved!");
+  
 });
 
 function dataShow(){
   const students = JSON.parse(sessionStorage.getItem('students')) || [];
   const tbody = document.getElementById("dataTable").querySelector('tbody');
 
-   tbody.innerHTML = '';
+ 
+  //tbody.innerHTML = "";
+
   students.forEach(function(student){
-    const row = document.createElement('tr');
-    row.innerHTML = `
-    <td>${student.name}</td>
-    <td>${student.roll}</td>
-    <td>${student.mark}</td>
-    `;
-    tbody.appendChild(row);
+  const row = document.createElement('tr');
+  row.innerHTML = `
+  <td>${student.name}</td>
+  <td>${student.roll}</td>
+  <td>${student.mark}</td>
+
+  `;
+  tbody.appendChild(row);
   });
-}
+  }
