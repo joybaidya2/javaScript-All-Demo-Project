@@ -1,4 +1,4 @@
-document.getElementById("studentForm").addEventListener('submit', function(e){
+document.getElementById("studentForm").addEventListener('submit', function(){
 //e.preventDefault();
   const name = document.getElementById('name').value;
   const roll = document.getElementById('roll').value;
@@ -6,7 +6,7 @@ document.getElementById("studentForm").addEventListener('submit', function(e){
 
   const student = {name, roll, mark};
 
-  let students = JSON.parse(sessionStorage.getItem('students')) || [];
+  let students = JSON.parse(sessionStorage.getItem('students'));
   students.push(student);
 
   sessionStorage.setItem('students', JSON.stringify(students));
@@ -17,7 +17,7 @@ document.getElementById("studentForm").addEventListener('submit', function(e){
 });
 
 function dataShow(){
-  const students = JSON.parse(sessionStorage.getItem('students')) || [];
+  const students = JSON.parse(sessionStorage.getItem('students'));
   const tbody = document.getElementById("dataTable").querySelector('tbody');
 
  

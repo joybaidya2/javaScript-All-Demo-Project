@@ -12,10 +12,21 @@
         table{
             padding: 10px;
         }
+        .btn{
+            margin: 15px;
+        }
       
     </style>
 </head>
 <body>
+    <div>
+        <input type="text" id="name" placeholder="Enter Name" />
+        <input type="text" id="roll" placeholder="Enter roll" />
+        <input type="text" id="mark" placeholder="Enter mark" />
+    </div>
+     <button class="btn" onclick="addTableRow()">Add Row</button>
+     <br/> <hr/>
+
     <table border="1" id="myTable">
         <thead>
             <tr>
@@ -33,7 +44,7 @@
         </tbody>
     </table>
     <br>
-    <button onclick="addTableRow()">Please add Row</button>
+   
     <script src="javaScript.js"></script>
 </body>
 </html>
