@@ -13,7 +13,6 @@
         <div>
             <h2>Student Details.!</h2>
        <div class="tableForm">
-         <form action="">
             <div>
                 <label for="">Full Name:</label><br>
                 <input type="text" id="name" placeholder="Enter your name"><br><br>
@@ -25,16 +24,28 @@
             </div>
 
             <div>
-                <label for="">Number:</label><br>
-                <input type="number" id="number" placeholder="Enter your number"><br><br>
+                <label for="">Mark:</label><br>
+                <input type="number" id="mark" placeholder="Enter your number"><br><br>
             </div>
-
-            <!-- Submit button added -->
-            <button type="submit">Submit</button>
-        </form>
+            <button type="button" onclick="addTableRow()">Submit</button>
        </div>
         </div>
-        
+        <div class="table-container">
+            <table border="1" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>Mark</th>
+                        <th>Button</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <i class="fas fa-times"></i>
+                </tbody>
+            </table>
+        </div>
     </main>
+    <script src="javaScript.js"></script>
 </body>
 </html>
