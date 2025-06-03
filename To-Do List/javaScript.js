@@ -1,4 +1,4 @@
-const item = document.getElementById('item');
+const item = document.getElementById("item");
 const toDoList = document.getElementById("to-do-list");
 
 item.addEventListener(
@@ -10,23 +10,25 @@ item.addEventListener(
         }
     }
 )
+
 function addToDo(item){
-    const listItem = document.createElement('li');
+    const listItem = document.createElement("li");
     listItem.innerHTML = `
     ${item}
-    <i class ="fas fa-times"></i>
+    <i class = "fas fa-times"></i>
     `;
     listItem.addEventListener(
-        "click",
+        'click',
         function(){
             listItem.classList.toggle("done");
         }
     )
-    listItem.querySelector('i').addEventListener(
-        "click",
+    listItem.querySelector("i").addEventListener(
+        'click',
         function(){
             listItem.remove();
         }
     )
+
     toDoList.appendChild(listItem);
 }
