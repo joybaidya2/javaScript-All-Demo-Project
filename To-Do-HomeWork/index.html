@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>T O D O</h1>
+      <button class="toggle-mode">🌙</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="todo-container">
+      <input type="text" class="new-todo" placeholder="Create a new todo..." />
+
+      <div class="list-items">
+        <ul class="todo-list">
+      </ul>
+      </div>
+
+      <div class="footer">
+        <span>0 items left</span>
+        <div class="filters">
+          <button class="active">All</button>
+          <button>Active</button>
+          <button>Completed</button>
+        </div>
+        <button class="clear">Clear Completed</button>
+      </div>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
