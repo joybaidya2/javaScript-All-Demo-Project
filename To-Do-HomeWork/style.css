@@ -15,8 +15,16 @@ body {
   padding: 3rem 1rem;
   color: white;
   text-align: center;
+  background-image: url(https://hypetv.es/wp-content/uploads/2020/08/El-Himalaya-los-3-lugares-ma%CC%81s-fascinantes-blog-edit-final.jpg);
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  height: 200px;
 }
-
+.fa-solid{
+  font-size: 25px;
+  font-weight: 400;
+}
 .header .container {
   max-width: 500px;
   margin: auto;
@@ -29,8 +37,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -3rem;
-  padding: 1rem;
+  margin-top: -6.3rem;
+  padding: 0.9rem;
 }
 
 .todo-container {
@@ -38,10 +46,12 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 500px;
-  border-radius: 8px;
+  border-radius: 3px;
   overflow: hidden;
 }
-
+#main{
+  margin-bottom: 90px;
+}
 .new-todo {
   width: 100%;
   padding: 1rem;

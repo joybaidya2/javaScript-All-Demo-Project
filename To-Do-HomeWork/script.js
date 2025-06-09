@@ -1,18 +1,17 @@
 const todos = [];
 
 const todoList = document.querySelector('.todo-list');
-const itemsLeftSpan = document.querySelector('.footer > span');
+const footer = document.querySelector('.footer');
+const itemsLeftSpan = footer.querySelector('span');
 const clearCompletedBtn = document.querySelector('.clear');
 const newTodoInput = document.querySelector('.new-todo');
 const filterButtons = document.querySelectorAll('.filters button');
 
-let currentFilter = 'All'; // 'All', 'Active', 'Completed'
+let currentFilter = 'All';
 
-// Render todos based on current filter
 function renderTodos() {
   todoList.innerHTML = '';
 
-  // Filter todos based on filter selection
   let filteredTodos;
   if (currentFilter === 'All') {
     filteredTodos = todos;
@@ -22,7 +21,7 @@ function renderTodos() {
     filteredTodos = todos.filter(todo => todo.isCompleted);
   }
 
-  filteredTodos.forEach((todo, index) => {
+  filteredTodos.forEach(todo => {
     const li = document.createElement('li');
     li.classList.add('todo');
     if (todo.isCompleted) li.classList.add('completed');
@@ -32,11 +31,8 @@ function renderTodos() {
 
     li.appendChild(document.createTextNode(todo.description));
 
-    // Toggle completion when clicking the list item
     li.addEventListener('click', () => {
-      // Find the real index in the todos array (not filtered)
-      const realIndex = todos.findIndex(t => t === todo);
-      todos[realIndex].isCompleted = !todos[realIndex].isCompleted;
+      todo.isCompleted = !todo.isCompleted;
       renderTodos();
     });
 
@@ -46,13 +42,11 @@ function renderTodos() {
   updateItemsLeft();
 }
 
-// Update the count of incomplete todos
 function updateItemsLeft() {
   const incompleteCount = todos.filter(todo => !todo.isCompleted).length;
-  itemsLeftSpan.textContent = `${incompleteCount} item${incompleteCount !== 1 ? 's' : ''} left`;
+  itemsLeftSpan.textContent = `${incompleteCount} items left`;
 }
 
-// Clear all completed todos
 clearCompletedBtn.addEventListener('click', () => {
   for (let i = todos.length - 1; i >= 0; i--) {
     if (todos[i].isCompleted) {
@@ -62,7 +56,6 @@ clearCompletedBtn.addEventListener('click', () => {
   renderTodos();
 });
 
-// Add new todo on Enter key press
 newTodoInput.addEventListener('keypress', e => {
   if (e.key === 'Enter') {
     const description = newTodoInput.value.trim();
@@ -74,7 +67,6 @@ newTodoInput.addEventListener('keypress', e => {
   }
 });
 
-// Filter buttons functionality
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
     filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -84,7 +76,6 @@ filterButtons.forEach(button => {
   });
 });
 
-// Initial render on page load
 window.onload = () => {
   renderTodos();
 };
