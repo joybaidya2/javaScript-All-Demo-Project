@@ -9,15 +9,17 @@ const filterButtons = document.querySelectorAll('.filters button');
 
 let currentFilter = 'All';
 
-function renderTodos() {
+function allTodos() {
   todoList.innerHTML = '';
 
   let filteredTodos;
   if (currentFilter === 'All') {
     filteredTodos = todos;
-  } else if (currentFilter === 'Active') {
+  } 
+  else if (currentFilter === 'Active') {
     filteredTodos = todos.filter(todo => !todo.isCompleted);
-  } else if (currentFilter === 'Completed') {
+  } 
+  else if (currentFilter === 'Completed') {
     filteredTodos = todos.filter(todo => todo.isCompleted);
   }
 
@@ -33,7 +35,7 @@ function renderTodos() {
 
     li.addEventListener('click', () => {
       todo.isCompleted = !todo.isCompleted;
-      renderTodos();
+      allTodos();
     });
 
     todoList.appendChild(li);
@@ -53,7 +55,7 @@ clearCompletedBtn.addEventListener('click', () => {
       todos.splice(i, 1);
     }
   }
-  renderTodos();
+  allTodos();
 });
 
 newTodoInput.addEventListener('keypress', e => {
@@ -62,7 +64,7 @@ newTodoInput.addEventListener('keypress', e => {
     if (description) {
       todos.push({ description, isCompleted: false });
       newTodoInput.value = '';
-      renderTodos();
+      allTodos();
     }
   }
 });
@@ -72,10 +74,10 @@ filterButtons.forEach(button => {
     filterButtons.forEach(btn => btn.classList.remove('active'));
     button.classList.add('active');
     currentFilter = button.textContent;
-    renderTodos();
+    allTodos();
   });
 });
 
 window.onload = () => {
-  renderTodos();
+  allTodos();
 };
